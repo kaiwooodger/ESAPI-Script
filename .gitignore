@@ -1,0 +1,9 @@
+**/bin/
+**/obj/
+*.dll
+*.pdb
+*.exe
+.DS_Store
+*.dcm
+*.pdf
+*.log

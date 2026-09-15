@@ -1,0 +1,20 @@
+PASS parameter validation
+PASS IDs fit 16-character limit
+PASS regular lattice includes centroid exactly once
+PASS requested CTC is nearest-neighbour distance for all paper configurations
+PASS AP/SI parity offsets agree for negative indices
+PASS bounds are derived dynamically beyond 100 indices
+PASS translated coordinates preserve lattice
+PASS circles lie on exact analytic sphere
+PASS polygon and slice-sampling volume converge to sphere
+PASS mesh centroid differs correctly from bounding box centre
+PASS degenerate centroid fails explicitly
+PASS complete-sphere containment rejects centre-only false positives
+PASS non-convex analytic target exclusion is respected
+PASS zero-fit slice retry finds a different SI phase
+PASS zero-fit and one-fit cases remain distinguishable
+PASS end-slice fill adds vertices while maintaining every pair's CTC
+PASS fit limits and callback failures propagate
+PHANTOM radius=50 mm, contraction=5 mm, diameter=15 mm, CTC=35 mm: 13 vertices
+PASS analytic sphere phantom produces reproducible centres
+RESULT 18 passed, 0 failed. Geometry tests only; Eclipse not executed.

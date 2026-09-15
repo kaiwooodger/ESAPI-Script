@@ -1,0 +1,14 @@
+name: Geometry verification
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  geometry:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - run: dotnet run --project tests/GeometryTests.csproj --configuration Release
+      - run: dotnet build tests/AdapterCompile.csproj --configuration Release
