@@ -24,7 +24,7 @@ Outputs are CONTROL structures named `LAT_V001`, `LAT_V002`, etc., and `LAT_ALL`
 
 ## Run in Eclipse
 
-1. Use an editable research/test structure set and an installation permitting write-enabled ESAPI scripts. The API surface targets ESAPI 16.1; the installed Eclipse version, framework and local script approval must support it.
+1. For the single-file first run, use an editable test structure set on a research/development installation permitting write-enabled ESAPI scripts. A test patient on a clinical database does not itself grant research write access. The API surface targets ESAPI 16.1; the installed Eclipse version and framework must support it.
 2. Copy only `src/LatticeSphereGenerator.cs` to the workstation script directory. Edit parameters. Do not copy test stubs into that directory.
 3. Load the patient and structure set containing the target, then open Eclipse **Tools → Scripts**, select the script directory and run the `.cs` plug-in. Single-file compilation and approval behavior depend on the installed release. A local compiled DLL alternative is available below.
 4. Review the copyable verification window and every generated contour. It lists requested DICOM centre coordinates, ESAPI volumes, minimum requested-centre spacing, retry shift and end-fill count.
@@ -37,6 +37,8 @@ Compile against your installed Varian DLLs on Windows:
 ```
 
 The command compiles a 64-bit `.esapi.dll` into a temporary folder and records source/output hashes. Follow local Eclipse deployment/approval procedures for DLL plug-ins. This script has not been run here because the host is macOS and lacks Varian DLLs.
+
+For a clinical installation, use the compiled binary route: Varian documents approval as mandatory for write-enabled scripts, with approval available for binary plug-ins and stand-alone executables, not single-file source plug-ins. Authorized staff register and approve the binary through **Tools → Script Approvals**. Parameter changes require rebuilding and reviewing the changed binary. See [Varian's approval workflow](https://docs.developer.varian.com/articles/15.6/11_Approving_Scripts_for_Clinical_Use.html).
 
 ## Geometry and verification
 
