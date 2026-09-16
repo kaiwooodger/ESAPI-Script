@@ -14,3 +14,4 @@ jobs:
       - run: dotnet build tests/AdapterCompile.csproj --configuration Release
       - run: dotnet run --project verification/PhantomExport.csproj --configuration Release -- /tmp/lattice-centres.csv
       - run: dotnet run --project verification/IrregularRobustness.csproj --configuration Release -- /tmp/irregular-summary.csv /tmp/irregular-centres.csv
+      - run: dotnet run --project verification/ParameterSweep.csproj --configuration Release -- /tmp/parameter-sweep.csv

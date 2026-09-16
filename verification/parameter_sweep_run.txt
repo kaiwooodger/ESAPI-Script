@@ -1,0 +1,1 @@
+PASS parameter sweep: configurations=15, sizes=5, phases=5, trials=375, valid_lattices=336, no_lattice=39, verification_directions=8198

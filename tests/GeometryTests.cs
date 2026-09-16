@@ -85,6 +85,17 @@ internal static class GeometryTests
             double analytic=4*Math.PI*r*r*r/3;
             Assert(Math.Abs(volume/analytic-1)<0.001,"Sphere volume error > 0.1% on fine grid");
         });
+        Test("10, 15 and 20 mm spheres remain stable across clinical-like slice sampling", () => {
+            foreach(double diameter in new[] {10.0,15.0,20.0})
+            foreach(double step in new[] {1.0,2.0,3.0})
+            foreach(double phase in new[] {0.0,step/2}) {
+                double r=diameter/2, volume=0;
+                int first=(int)Math.Ceiling((-r-phase)/step),last=(int)Math.Floor((r-phase)/step);
+                for(int k=first;k<=last;k++) volume+=PolygonArea(Geometry.Circle(Origin,r,phase+k*step,96))*step;
+                double analytic=4*Math.PI*r*r*r/3,relative=Math.Abs(volume/analytic-1);
+                Assert(relative<0.05,"Volume sampling error >=5% for diameter="+diameter+", spacing="+step+", phase="+phase);
+            }
+        });
         Test("mesh centroid differs correctly from bounding box centre", () => {
             var p=new List<Point> {Origin,new Point(4,0,0),new Point(0,8,0),new Point(0,0,12)};
             var t=new List<int> {0,2,1,0,1,3,0,3,2,1,2,3};
