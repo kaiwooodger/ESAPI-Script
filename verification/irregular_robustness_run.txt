@@ -1,0 +1,1 @@
+PASS irregular robustness: sizes=10, phases=9, trials=90, base_volume=619.623 cc, containment_surface_samples=8198

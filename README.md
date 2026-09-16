@@ -68,6 +68,8 @@ dotnet run --project verification/PhantomExport.csproj --configuration Release -
 python3 verification/render_phantom.py verification/lattice_15mm_ctc40mm_centres.csv verification/lattice_15mm_ctc40mm.png
 ```
 
+An additional [irregular-volume robustness study](docs/IRREGULAR_ROBUSTNESS.md) covers 10 tumour sizes and nine lattice-phase conditions per size (90 trials), including reproducible code, raw centres and a summary figure.
+
 ## Practical limits
 
 Only axis-aligned axial images are supported; oblique or in-plane rotated axes are rejected. Reversed image directions are accounted for. Diameter must span at least three times the largest voxel spacing. Segment containment checks ESAPI's finite-resolution representation, not a mathematical continuous sphere; realized sphere volume, shape and centroid depend on CT spacing and segmentation. Requested-centre spacing is checked numerically; realized-centroid and boundary checks remain part of Eclipse verification.

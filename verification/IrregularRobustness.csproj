@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <DefineConstants>GEOMETRY_ONLY</DefineConstants>
+    <LangVersion>5</LangVersion>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../src/LatticeSphereGenerator.cs" Link="LatticeSphereGenerator.cs" />
+    <Compile Include="IrregularRobustness.cs" />
+  </ItemGroup>
+</Project>
