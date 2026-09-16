@@ -55,6 +55,19 @@ dotnet build tests/AdapterCompile.csproj --configuration Release
 
 The second command uses deliberately non-operational signature stubs to check adapter C# syntax. It does **not** establish real ESAPI compatibility. GitHub Actions runs the geometry checks on subsequent pushes and pull requests.
 
+### Worked local phantom: 15 mm diameter / 40 mm CTC
+
+The deployed C# geometry was run against an analytic spherical GTV with 60 mm radius and the paper's 5 mm contraction. It produced 13 complete vertices with a minimum pair distance of exactly 40.000000 mm. This phantom verifies the requested lattice parameters and complete-sphere containment; it does not predict the vertex count in a patient's irregular GTV.
+
+![15 mm sphere, 40 mm CTC local verification](verification/lattice_15mm_ctc40mm.png)
+
+Evidence: [run result](verification/lattice_15mm_ctc40mm_run.txt) and [requested centres](verification/lattice_15mm_ctc40mm_centres.csv). Reproduce the geometry run with:
+
+```sh
+dotnet run --project verification/PhantomExport.csproj --configuration Release -- verification/lattice_15mm_ctc40mm_centres.csv
+python3 verification/render_phantom.py verification/lattice_15mm_ctc40mm_centres.csv verification/lattice_15mm_ctc40mm.png
+```
+
 ## Practical limits
 
 Only axis-aligned axial images are supported; oblique or in-plane rotated axes are rejected. Reversed image directions are accounted for. Diameter must span at least three times the largest voxel spacing. Segment containment checks ESAPI's finite-resolution representation, not a mathematical continuous sphere; realized sphere volume, shape and centroid depend on CT spacing and segmentation. Requested-centre spacing is checked numerically; realized-centroid and boundary checks remain part of Eclipse verification.

@@ -1,0 +1,1 @@
+PASS diameter=15.0 mm CTC=40.0 mm target_radius=60.0 mm contraction=5.0 mm vertices=13 min_pair_distance=40.000000 mm fit_tests=13
